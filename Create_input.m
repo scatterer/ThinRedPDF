@@ -6,6 +6,10 @@ addpath ( genpath ( 'Sample_specific_data/' ) )
 addpath ( genpath ( 'Subroutines/Functions/' ) )
 addpath ( genpath ( 'Subroutines/process_pdf' ) )
 
+% ------------------------------------------------------------------------------
+% IMPORTANT
+% The "Data_folder.rar" have to first be unzipped into the current folder before "Create_input.m" can be executed
+% ------------------------------------------------------------------------------
 
 Name_of_input = 'First_example_324nm_0_17omega_14keV_to_18keV_Efilter';
 
@@ -16,13 +20,13 @@ Name_of_input = 'First_example_324nm_0_17omega_14keV_to_18keV_Efilter';
 % -------------------------------------------------------------------------
 instr = struct();
 
-instr.goniometer_length = 240*1e7;    % [mm --> Å]
-instr.wavelength        = 0.7107488;  % [Å]
+instr.goniometer_length = 240*1e7;    % [mm --> Ã…]
+instr.wavelength        = 0.7107488;  % [Ã…]
 instr.pol_angle         = 0;        % [deg]
 
 instr.divergence        = 1/16;       % [deg]
-instr.source_slit       = 0.1*1e7;   % [mm --> Å]
-instr.det_slit          = 8.89*1e7;   % [mm --> Å]
+instr.source_slit       = 0.1*1e7;   % [mm --> Ã…]
+instr.det_slit          = 8.89*1e7;   % [mm --> Ã…]
 
 instr.angle_in          = 0.15;      % Incidence angle [deg]
 
@@ -36,8 +40,8 @@ sample.C   = [0.33, 0.67];      % Composition
 
 sample.rho = 6.373;      % Density [g/cm^3]
 sample.mu  = 1/(0.207204);  % Attenuation coefficient [1/microns]
-sample.t   = 3240;       % Thickness [Å]
-sample.len = 20*1e7;     % length sample [Å]
+sample.t   = 3240;       % Thickness [Ã…]
+sample.len = 20*1e7;     % length sample [Ã…]
 
 
 % -------------------------------------------------------------------------
@@ -103,7 +107,7 @@ data = struct();
 instr.source_beam_width = instr.source_slit + 0.1*instr.goniometer_length*2*tand(instr.divergence/2);
 
 sample.C             = sample.C./sum(sample.C);
-sample.mu            = sample.mu*1e-4;           %[1/microns -->1/Å]
+sample.mu            = sample.mu*1e-4;           %[1/microns -->1/Ã…]
 [sample.Z, sample.M] = Read_elemental_data(sample.E);
 sample.M_av          = sum(sample.M.*sample.C);
 sample.FF_coeff      = Read_form_factor_coefficients(sample.Z, instr.wavelength);
