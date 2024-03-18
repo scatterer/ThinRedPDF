@@ -1,0 +1,31 @@
+% Input values for Monte Carlo normalization
+% Number of MC_step
+1000
+
+% Span of sampled coherent N and incoherent N
+5e1
+1e-10
+1e1
+
+% Guess of PDF first peak
+2.40
+
+% Q cut-off value (first row: start Q, second: end Q, third: step size)
+18.8
+18.8
+0.1
+
+% N coherent
+21.703
+
+% N incoherent (or spurious effects)
+1
+5.6114
+
+% Energy filter correction. Span of sampled width and shift
+1e-0
+1e-0
+
+% Energy filter correction. Width and shift. Negative values = no correction
+-1.7818
+0.025417
